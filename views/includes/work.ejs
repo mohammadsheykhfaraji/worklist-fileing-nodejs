@@ -1,0 +1,36 @@
+<% if(work.length>0){ %> 
+    <ul class="list-unstyled " id="work">
+        <% for(let works of work){ %> 
+            
+             <li>
+                <div class="alert <%= works.complated ? 'alert-success' : 'alert-secondary' %> w-50 mx-auto ">
+
+                    <% if(works.complated){ %>
+                        <del>
+                            <%= works.txt %> 
+                        </del>
+                        <a href="/admin/deletwork/<%= works.id %> " class="close fa fa-trash " style="color: red;"></a>
+                          
+                        <% }else{ %>
+                            <%= works.txt %> 
+                            <a href="/admin/deletwork/<%= works.id %> " class="close fa fa-trash " style="color: red;"></a>
+                            <a href="/admin/completedwork/<%= works.id %> " class="close fa fa-check-square mr-2" style="color: green;"></a>
+                            
+                            <% } %> 
+
+                  
+                   
+                </div>
+            </li>
+            
+            <% } %> 
+    </ul>
+
+ <% }else{ %>
+    <div class="alert alert-warning w-50 mx-auto">
+        <h4 class="alert-heading">هیچ کاری نیست  </h4>
+        <p>بالا بنویس تا برات ثبت کنم</p>
+        <hr>
+        <p class="mb-0">اگر بد بود ببخشید <span class="fa fa-heart" style="color: red;"/></p> 
+    </div>
+<% } %> 
